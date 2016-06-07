@@ -19,7 +19,7 @@ public class Solution {
             int pre = -1;
             for (int i=start; i<candidates.length; i++){
                 int num = candidates[i];
-                if (num == pre){
+                if (pre == num){
                     continue;
                 }
                 pre = num;
