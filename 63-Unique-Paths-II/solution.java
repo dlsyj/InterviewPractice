@@ -3,7 +3,7 @@ public class Solution {
         if (obstacleGrid == null || obstacleGrid.length == 0 || obstacleGrid[0].length == 0){
             return 0;
         }
-        int[] ans = new int[obstacleGrid.length];
+        int[] ans = new int[obstacleGrid[0].length];
         ans[0] = 1;
         for (int i=0; i < obstacleGrid.length; i++){
             for (int j=0; j < obstacleGrid[0].length; j++){
