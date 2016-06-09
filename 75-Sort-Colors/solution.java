@@ -10,7 +10,7 @@ public class Solution {
         }
         helper[1] += helper[0];
         helper[2] += helper[1];
-        for (int i=nums.length-1; i>=0; i--){
+        for (int i=0; i < nums.length; i++){
             ans[helper[nums[i]]-1] = nums[i];
             helper[nums[i]]--;
         }
