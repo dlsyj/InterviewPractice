@@ -16,6 +16,6 @@ public class Solution {
                 }
             }
         }
-        return ans[obstacleGrid.length-1];
+        return ans[obstacleGrid[0].length-1];
     }
 }
