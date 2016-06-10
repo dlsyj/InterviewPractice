@@ -4,13 +4,19 @@ public class Solution {
     		return false;
     	}
     	int[] temp = new int[matrix.length*matrix[0].length];
+    	int num = 0;
+    	for (int i = 0; i < matrix.length; i++){
+    		for (int j = 0; j < matrix[0].length; j++){
+    			temp[num++] = matrix[i][j];
+    		}
+    	}
     	int low = 0, high = temp.length;
-    	while (low <= high){
+    	while (low < high){
     		int mid = low + (high - low)/2;
     		if (temp[mid] < target){
-    			low = mid+1;
+    			low = mid;
     		} else if (temp[mid] > target) {
-    			high = mid-1;
+    			high = mid;
     		} else {
     			return true;
     		}
