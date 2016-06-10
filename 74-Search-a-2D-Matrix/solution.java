@@ -13,6 +13,6 @@ public class Solution {
     			high = mid;
     		}
     	}
-    	return matrix[mid/n][mid%n] == target;     
+    	return matrix[low/n][low%n] == target;     
     }
 }
