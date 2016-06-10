@@ -13,10 +13,10 @@ public class Solution {
                 } else {
                     high = mid;
                 }
-            } else if (nums[low] < nums[high]){
+            } else if (nums[low] < nums[high]){     // change 
                 return nums[low];
-            } else {
-                while (nums[low] == nums[high] && low < high) low++;
+            } else {                                // change
+                while (nums[low] == nums[high] && low < high) low++;    // change
             }
         }
         return nums[low];
