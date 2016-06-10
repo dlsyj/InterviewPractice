@@ -4,16 +4,22 @@ public class Solution {
             return;
         }
         int len = matrix.length;
-        int[][] ans = new int[len][len];
         for (int i=0; i < len; i++){
-            for (int j=0; j< len; j++){
-                ans[i][j] = matrix[len-1-j][i];
+            for (int j=0; j < len-1-i; j++){
+                swap(matrix,i,j,len-j-1,len-i-1);
             }
         }
-        for (int i=0; i < len; i++){
-            for (int j=0; j< len; j++){
-                matrix[i][j] = ans[i][j];
+        for (int i=0; i < len/2; i++){
+            for (int j=0; j < len; j++){
+                swap(matrix,i,j,len-1-i,j);
             }
         }
+        
+    }
+    
+    public void swap (int[][] matrix, int x1, int y1, int x2, int y2){
+        int temp=matrix[x1][y1];
+        matrix[x1][y1]=matrix[x2][y2];
+        matrix[x2][y2]=temp;
     }
 }
