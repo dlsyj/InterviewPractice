@@ -9,6 +9,6 @@ public class Solution {
                 nums[uniqueID++] = nums[i];
             }
         }
-        return uniqueID;
+        return uniqueI;
     }
 }
