@@ -7,7 +7,7 @@ public class Solution {
         if (left ==  right){
             return left;
         }
-        int mid = left + (right - left);
+        int mid = left + (right - left)/2;
         if (nums[mid] < nums[mid+1]){
             return helper(nums,mid+1,right);
         } else {
