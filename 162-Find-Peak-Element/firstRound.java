@@ -9,9 +9,9 @@ public class Solution {
         }
         int mid = left + (right - left);
         if (nums[mid] < nums[mid+1]){
-            left = mid+1;
+            return helper(nums,mid+1,right);
         } else {
-            right = mid;
+            return helper(nums,left,mid);
         }
     }
 }
