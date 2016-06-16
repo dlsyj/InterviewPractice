@@ -1,6 +1,6 @@
 public class Solution {
     public int findPeakElement(int[] nums) {
-        return helper(nums,0,num.length-1);
+        return helper(nums,0,nums.length-1);
     }
     
     public int helper(int[] num, int left, int right){
