@@ -4,7 +4,7 @@ public class Solution {
     }
     
     public int helper(int[] nums, int left, int right){
-        if (left ==  rihgt){
+        if (left ==  right){
             return left;
         }
         int mid = left + (rihgt - left);
