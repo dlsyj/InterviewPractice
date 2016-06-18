@@ -5,7 +5,7 @@ public class Solution {
         for (int i = 0; i < numRows; i++){
             eachRow.add(0,1);
             for (int j = 1; j < eachRow.size()-1; j++){
-                eachRow.add(j, eachRow.get(j) + eachRow.get(j+1));
+                eachRow.set(j, eachRow.get(j) + eachRow.get(j+1));
             }
             ans.add(new ArrayList<Integer>(eachRow));
         }
