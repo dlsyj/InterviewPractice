@@ -1,10 +1,10 @@
 public class Solution {
     public int search(int[] nums, int target) {
-        if (nums == null || nums.length == 0)}{
+        if (nums == null || nums.length == 0){
             return 0;
         }
         int left = 0, right = nums.length - 1;
-        while (left < right){
+        while (left <= right){
             int mid = left + (right - left)/2;
             // case 1: target == nums[mid]
             if (target == nums[mid]){
