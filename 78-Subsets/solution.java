@@ -7,7 +7,7 @@ public class Solution {
         for (int i = 0; i < subsetNum; i++){
             List<Integer> eachSubset = new ArrayList<Integer>();
             for (int j = 0; j < length; j++){
-                if ((i && (1<<j)) != 0){
+                if ((i&(1<<j)) != 0){
                     eachSubset.add(nums[j]);
                 }
             }
