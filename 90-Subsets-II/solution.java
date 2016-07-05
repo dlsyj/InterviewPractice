@@ -3,7 +3,7 @@ public class Solution {
         List<List<Integer>> ans = new ArrayList<List<Integer>>();
         Arrays.sort(nums);
         int length = nums.length;
-        int subsetNum = 1 << length;    // total number of subset
+        int subsetNum = 1 << length;
         for (int i = 0; i < subsetNum; i++){
             boolean illegal = false;
             List<Integer> eachSubset = new ArrayList<Integer>();
