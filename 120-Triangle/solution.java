@@ -10,7 +10,7 @@ public class Solution {
             ans[i] = triangle.get(triangle.size()-1).get(i);
         }
         for (int i = triangle.size()-2; i >= 0; i--){
-            for (int j = 0; j < i; j++){
+            for (int j = 0; j <= i; j++){
                 ans[j] = Math.min(ans[j],ans[j-1])+triangle.get(i).get(j);
             }
         }
