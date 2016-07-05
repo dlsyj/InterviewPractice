@@ -1,22 +1,26 @@
 public class Solution {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         List<List<Integer>> ans = new ArrayList<List<Integer>>();
-        if (nums == null || nums.length == 0){
-            return ans;
-        }
         Arrays.sort(nums);
-        dfs(nums, ans, new ArrayList<Integer>(), 0);
-        return ans;
-    }
-    public void dfs(int[] nums, List<List<Integer>> ans, ArrayList<Integer> path, int index){
-        ans.add(new ArrayList<Integer>(path));
-        for (int i = index; i < nums.length; i++){
-            if (i != index && nums[i] == nums[i-1]){
-                continue;
+        int length = nums.length;
+        int subsetNum = 1 << length;    // total number of subset
+        for (int i = 0; i < subsetNum; i++){
+            boolean illegal = false;
+            List<Integer> eachSubset = new ArrayList<Integer>();
+            for (int j = 0; j < length; j++){
+                if ((i&(1<<j)) == 1){
+                    if (j > 0 && nums[j] == nums[j-1] && (i&(1<<(j-1)) == 0) ){
+                        illegal = true;
+                        break;
+                    }else{
+                        eachSubset.add(nums[j]);
+                    }
+                }
             }
-            path.add(nums[i]);
-            dfs(nums,ans,path,i+1);
-            path.remove(path.size()-1);
+            if (!illegal){
+                ans.add(eachSubset);
+            }
         }
+        return ans;
     }
 }
