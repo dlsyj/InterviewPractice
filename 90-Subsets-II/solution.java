@@ -4,10 +4,11 @@ public class Solution {
         if (nums == null || nums.length == 0){
             return ans;
         }
+        Arrays.sort(nums);
         dfs(nums, ans, new ArrayList<Integer>(), 0);
         return ans;
     }
-    publics void dfs(int[] nums, List<List<Integer>> ans, ArrayList<Integer> path, int index){
+    public void dfs(int[] nums, List<List<Integer>> ans, ArrayList<Integer> path, int index){
         ans.add(new ArrayList<Integer>(path));
         for (int i = index; i < nums.length; i++){
             if (i != index && nums[i] == nums[i-1]){
