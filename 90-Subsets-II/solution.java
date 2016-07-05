@@ -9,7 +9,7 @@ public class Solution {
             List<Integer> eachSubset = new ArrayList<Integer>();
             for (int j = 0; j < length; j++){
                 if ((i>>j)&1 == 1){
-                    if (j > 0 && nums[j] == nums[j-1] && (i>>j-1)&1 == 0 ){
+                    if (j > 0 && nums[j] == nums[j-1] && ((i>>j-1)&1) == 0 ){
                         illegal = true;
                         break;
                     }else{
