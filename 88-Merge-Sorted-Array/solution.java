@@ -7,7 +7,7 @@ public class Solution {
          // keep three indexes: last index in nums1, last index in nums2, last index in result
         int index1 = m - 1, index2 = n - 1, indexAns = m + n - 1;
         while (index1 >= 0 && index2 >= 0){
-            if (nums1[index1] > nums[index2]){
+            if (nums1[index1] > nums2[index2]){
                 nums1[indexAns--] = nums1[index1--];
             }else{
                 nums1[indexAns--] = nums2[index2--];
