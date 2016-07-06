@@ -13,7 +13,7 @@ public class Solution {
            if (i >= k){
                windowNumSet.remove((long)nums[i-k]);
            }
-           windowNumSet.add((long)nums[i-k]);
+           windowNumSet.add((long)nums[i]);
        }
        return false;
     }
