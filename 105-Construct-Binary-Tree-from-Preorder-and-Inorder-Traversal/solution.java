@@ -9,7 +9,7 @@
  */
 public class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        helper(inorder,0,inorder.length,preorder,0);
+        return helper(inorder,0,inorder.length,preorder,0);
     }
     
     public TreeNode helper(int[] inorder, int inStart, int inEnd, int[] preorder, int preStart){
