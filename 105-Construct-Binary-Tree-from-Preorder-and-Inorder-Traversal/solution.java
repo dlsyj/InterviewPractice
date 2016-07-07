@@ -14,14 +14,14 @@ public class Solution {
     
     public TreeNode helper(int[] inorder, int inStart, int inEnd, int[] preorder, int preStart){
         // Ending condition for recursion
-        if (preStart > preorder.length || inStart > inEnd){
+        if (preStart > preorder.length - 1 || inStart > inEnd){
             return null;
         }
         // First element in preorder is root of Binary Tree
         TreeNode root = new TreeNode(preorder[preStart]);
         int inIndex = 0;
         // First root in inorder to split left and right sub-trees
-        for (int i = inStart; i < inEnd; i++){
+        for (int i = inStart; i <= inEnd; i++){
             if (root.val == inorder[i]){
                 inIndex = i;
                 break;
