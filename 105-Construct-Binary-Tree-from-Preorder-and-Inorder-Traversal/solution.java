@@ -21,7 +21,7 @@ public class Solution {
         TreeNode root = new TreeNode(preorder[preStart]);
         int inIndex = 0;
         // First root in inorder to split left and right sub-trees
-        for (int i = inStart, i < inEnd; i++){
+        for (int i = inStart; i < inEnd; i++){
             if (root.val == inorder[i]){
                 inIndex = i;
                 break;
