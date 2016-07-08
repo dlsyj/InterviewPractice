@@ -1,6 +1,6 @@
 public class Solution {
     int minSubArrayLen(int s, int[] nums) {
-        int len = nums.size();
+        int len = nums.length;
         int[] sums = new int[len+1];
         int res = len + 1;
         for (int i = 1; i < len + 1; ++i) sums[i] = sums[i - 1] + nums[i - 1];
