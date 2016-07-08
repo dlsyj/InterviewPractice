@@ -11,8 +11,6 @@ public class Solution {
             }else{
                 map.put(num,map.get(num)+1);
             }
-        }
-        for (int key : map.keySet()){
             if (map.get(key) > Math.floor(nums.length/3)){
                 ans.add(key);
             }
