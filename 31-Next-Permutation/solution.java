@@ -5,7 +5,7 @@ public class Solution {
             return;
         }
         int i = nums.length-1;
-        for (;i >= 0; i--){
+        for (;i > 0; i--){
             //find first number which is smaller than it's after number
             if (nums[i-1] < nums[i]){
                 break;
