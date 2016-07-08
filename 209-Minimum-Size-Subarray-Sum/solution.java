@@ -11,7 +11,7 @@ public class Solution {
         
         for (int i = 1; i <= len; i++){
             // each element in accumulateSum is sum from nums[0 to i-1]
-            accumulatedSum[i] = accumulatedSum[i-1] + nums[i];  
+            accumulatedSum[i] = accumulatedSum[i-1] + nums[i-1];  
         }
         
         for (int i = 0; i <= len; i++){
@@ -33,6 +33,7 @@ public class Solution {
                 right = mid;
             }
         }
+        return left;
     }
     
     
