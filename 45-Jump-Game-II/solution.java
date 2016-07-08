@@ -1,16 +1,19 @@
 public class Solution {
     public int jump(int[] nums) {
-        int step = 0, pre = 0, cur = 0;
+        if (nums == null || nums.length == 0){
+            return 0;
+        }
+        int step = 0, curReached = 0, nextReached = 0;
         for (int i = 0; i < nums.length; i++){
-            if (i > pre){
+            if (i > curReached){
                 step++;
-                pre = cur;
-                if (cur >= nums.length-1){
+                curReached = nextReached;
+                if (nextReached >= nums.length-1){
                     break;
                 }
             }
-            cur = Math.max(cur,nums[i]+i);
+            nextReached = Math.max(nextReached,nums[i]+i);
         }
-        return step;
     }
+    return step;
 }
