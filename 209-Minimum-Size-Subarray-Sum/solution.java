@@ -1,5 +1,5 @@
 public class Solution {
-    int minSubArrayLen(int s, vector<int>& nums) {
+    int minSubArrayLen(int s, int[] nums) {
         int len = nums.size(), sums[len + 1] = {0}, res = len + 1;
         for (int i = 1; i < len + 1; ++i) sums[i] = sums[i - 1] + nums[i - 1];
         for (int i = 0; i < len + 1; ++i) {
