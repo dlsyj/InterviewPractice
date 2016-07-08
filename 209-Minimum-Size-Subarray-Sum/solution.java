@@ -1,37 +1,19 @@
 public class Solution {
-    public int minSubArrayLen(int s, int[] nums) {
-        
-        // O(nlogn) solution, and need O(n) space
-        if (nums == null || nums.length == 0){
-            return 0;
+    int minSubArrayLen(int s, vector<int>& nums) {
+        int len = nums.size(), sums[len + 1] = {0}, res = len + 1;
+        for (int i = 1; i < len + 1; ++i) sums[i] = sums[i - 1] + nums[i - 1];
+        for (int i = 0; i < len + 1; ++i) {
+            int right = searchRight(i + 1, len, sums[i] + s, sums);
+            if (right == len + 1) break;
+            if (res > right - i) res = right - i;
         }
-        int len = nums.length;
-        int minWindow = len+1;
-        int[] accumulatedSum = new int[len+1];
-        
-        for (int i = 1; i <= len; i++){
-            // each element in accumulateSum is sum from nums[0 to i-1]
-            accumulatedSum[i] = accumulatedSum[i-1] + nums[i-1];  
-        }
-        
-        for (int i = 0; i <= len; i++){
-            int rightIndex = findRight(i+1,len,accumulatedSum[i]+s,accumulatedSum);
-            if (rightIndex == len+1){
-                break;
-            }
-            minWindow = Math.min(minWindow,rightIndex-i);
-        }
-        return minWindow == len+1 ? 0 : minWindow;
+        return res == len + 1 ? 0 : res;
     }
-    
-    public int findRight(int left, int right, int target, int[] accumulatedSum){
-        while (left <= right){
-            int mid = left + (right - left) / 2;
-            if (accumulatedSum[mid] < target){
-                left = mid+1;
-            } else {
-                right = mid;
-            }
+    int searchRight(int left, int right, int key, int sums[]) {
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (sums[mid] >= key) right = mid - 1;
+            else left = mid + 1;
         }
         return left;
     }
