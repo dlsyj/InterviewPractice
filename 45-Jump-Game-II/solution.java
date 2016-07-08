@@ -14,6 +14,6 @@ public class Solution {
             }
             nextReached = Math.max(nextReached,nums[i]+i);
         }
+        return step;
     }
-    return step;
 }
