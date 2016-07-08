@@ -8,7 +8,7 @@ public class Solution {
             if (i > curReached){
                 step++;
                 curReached = nextReached;
-                if (nextReached >= nums.length-1){
+                if (curReached >= nums.length-1){
                     break;
                 }
             }
