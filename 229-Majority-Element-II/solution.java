@@ -11,16 +11,16 @@ public class Solution {
     	temp[0] = 0;
     	temp[1] = 1;
     	for (int num : nums){
-    		if (count[0] == 0){
+    		if (num == temp[0]){
+    			count[0]++;
+    		}else if (num == temp[1]){
+    			count[1]++;
+    		}else if (count[0] == 0){
     			temp[0] = num;
     			count[0] = 1;
     		}else if (count[1] == 0){
     			temp[1] = num;
     			count[1] = 1;
-    		}else if (num == temp[0]){
-    			count[0]++;
-    		}else if (num == temp[1]){
-    			count[1]++;
     		}else{
     			count[0]--;
     			count[1]--;
@@ -36,7 +36,7 @@ public class Solution {
     		}
     	}
     	for (int j = 0; j < 2; j++) {
-    	    if (reCount[j] > nums.length/3 && !ans.contains(x[j])) ans.add(temp[j]);
+    	    if (reCount[j] > nums.length/3 && !ans.contains(temp[j])) ans.add(temp[j]);
         }  
     	
     	return ans;
