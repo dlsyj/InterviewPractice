@@ -31,18 +31,12 @@ public class Solution {
     	for (int num : nums){
     		if (num == temp[0]){
     			reCount[0]++;
-    			if (reCount[0] > Math.floor(nums.length/3) && !ans.contains(num)){
-    				ans.add(num);
-    			}
     		}else if (num == temp[1]){
     			reCount[1]++;
-    			if (reCount[1] > Math.floor(nums.length/3) && !ans.contains(num)){
-    				ans.add(num);
-    			}
     		}
     	}
     	for (int j = 0; j < 2; j++) {
-    	    if (reCount[j] > nums.length/3 && !res.contains(x[j])) res.add(x[j]);
+    	    if (reCount[j] > nums.length/3 && !ans.contains(x[j])) ans.add(temp[j]);
         }  
     	
     	return ans;
