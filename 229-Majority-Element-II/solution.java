@@ -11,6 +11,7 @@ public class Solution {
     	temp[0] = 0;
     	temp[1] = 1;
     	for (int num : nums){
+    	    // Watch out the if else order
     		if (num == temp[0]){
     			count[0]++;
     		}else if (num == temp[1]){
