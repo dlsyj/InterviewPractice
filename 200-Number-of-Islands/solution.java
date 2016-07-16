@@ -17,7 +17,7 @@ public class Solution {
     }
     
     public void dfs(char[][] grid, int i, int j) {  
-        if (i < 0 || i >= m || j < 0 || j >= n) return;  
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length) return;  
           
         if (grid[i][j] == '1') {  
             grid[i][j] = '2';  
