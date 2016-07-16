@@ -16,7 +16,7 @@ public class Solution {
         return numOfIslands;
     }
     
-    public void dfs(boolean[][] grid, int i, int j){
+    public void dfs(char[][] grid, int i, int j){
         if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length){
             return;
         }
