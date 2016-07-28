@@ -9,6 +9,9 @@
  */
 public class Codec {
 
+    private static final String spliter = ",";
+    private static final String NullNode = "X";
+    
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
