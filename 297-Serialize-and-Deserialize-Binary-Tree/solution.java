@@ -35,7 +35,7 @@ public class Codec {
         return buildTree(nodes);
     }
     
-    private TreeNode buildTree(Qeque<String> nodes) {
+    private TreeNode buildTree(Queue<String> nodes) {
         String val = nodes.remove();	// remove the first node in deque
         if (val.equals(NullNode)) return null;
         else {
