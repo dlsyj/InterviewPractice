@@ -6,7 +6,7 @@ public class Solution {
         if (len < 2){
             return s;
         }
-        for (int i=0; i < len; i++){
+        for (int i=0; i < len-1; i++){
             extendPalindrome(s,i,i); // length of s is odd
             extendPalindrome(s,i,i+1);// length of s is even
         }
