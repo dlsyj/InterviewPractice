@@ -18,9 +18,9 @@ public class Solution {
             left--;
             right++;
         }
-        if (maxLen < right-left+1){
+        if (maxLen < right-left-1){ // notice after while loop, s.charAt(left) != s.charAt(right)
             index = left;
-            maxLen = right-left+1;
+            maxLen = right-left-1;
         }
     }
 }
