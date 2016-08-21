@@ -1,23 +1,27 @@
 public class Solution {
     public int myAtoi(String str) {
-        // 1. empty
+        // 1. check empty
         if (str == null){
             return 0;
         }
+        
         // 2. discard leading white spaces
         str = str.trim();
         if (str.length() == 0){
             return 0;
         }
+        
+        // 3. handle sign 
         int sign = 1;
         int index = 0;
-        // 3. sign 
         if (str.charAt(index) == '+'){
             index ++;
         }else if (str.charAt(index) == '-'){
             sign = -1;
             index ++;
         }
+        
+        // 4. convert number and avoid overflow
         long num = 0;
         for (;index < str.length(); index++){
             if (str.charAt(index) < '0' || str.charAt(index) > '9'){
@@ -28,7 +32,7 @@ public class Solution {
                 break;
             }
         }
-        // 4. overflow
+       
         if (num * sign >= Integer.MAX_VALUE){
             return Integer.MAX_VALUE;
         }
