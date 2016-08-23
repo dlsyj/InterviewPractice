@@ -4,12 +4,12 @@ public class Solution {
         if (nums == null || nums.length == 0){
             return 0;
         }
-        int max = Integer.MIN_VALUE, sum = 0;
-        for (int i = 0; i < nums.length; i++){
-            sum += nums[i];
-            max = Math.max(max,sum);
-            sum = Math.max(sum,0);
+        int globalMax = Integer.MIN_VALUE, localSum = 0;
+        for (int each : nums){
+            localSum += each;
+            globalMax = Math.max(globalMax,sum);
+            localSum = Math.max(localSum,0);
         }
-        return max;
+        return globalMax;
     }
 }
