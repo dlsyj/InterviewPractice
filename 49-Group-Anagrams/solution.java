@@ -9,7 +9,7 @@ public class Solution {
         for (int i = 0; i < strs.length; i++){
             char[] rawArr = strs[i].toCharArray();
             Arrays.sort(rawArr);
-            String sortedStr = String.valueOf(rawArr);
+            String sortedStr = new String(rawArr);
             if (map.containsKey(sortedStr)){
                 map.get(sortedStr).add(strs[i]);
             }else{
