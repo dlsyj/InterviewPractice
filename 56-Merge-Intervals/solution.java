@@ -9,6 +9,9 @@
  */
 public class Solution {
     public List<Interval> merge(List<Interval> intervals) {
+        if (intervals.size() <= 1){
+            return intervals;
+        }
         List<Interval> result = new ArrayList<Interval>();
         int len = intervals.size();
         
@@ -23,7 +26,7 @@ public class Solution {
         int currentStart = intervals.get(0).start;
         int currentEnd = intervals.get(0).end;
         for (Interval each: intervals){
-            if (each.start < currentEnd){  // Overlapping intervals
+            if (each.start <= currentEnd){  // Overlapping intervals
                 currentEnd = Math.max(currentEnd,each.end);
             } else {                       // Disjoint intervals
                 result.add(new Interval(currentStart,currentEnd));
