@@ -9,24 +9,29 @@
  */
 public class Solution {
     public List<Interval> merge(List<Interval> intervals) {
-        List<Interval> ans = new ArrayList<Interval>();
+        List<Interval> result = new ArrayList<Interval>();
         int len = intervals.size();
-        int[] startArray = new int[len];
-        int[] endArray = new int[len];
-        for (int i = 0; i < len; i++){
-            startArray[i] = intervals.get(i).start;
-            endArray[i] = intervals.get(i).end;
-        }
-        // Sort start & end
-        Arrays.sort(startArray);
-        Arrays.sort(endArray);
-        // Iterate and merge
-        for (int i = 0, j = 0; i < len; i++){
-            if (i == len -1 || startArray[i+1] > endArray[i]){
-                ans.add(new Interval(startArray[j],endArray[i]));
-                j = i+1;
+        
+        // Sort by ascending starting point using an anonymous Comparator
+        Collections.sort(intervals, new Comparator<Interval>() {
+            @Override
+            public int compare(Interval i1, Interval i2){
+                return Integer.compare(i1.start,i2.start);
+            }
+        });
+        
+        int currentStart = intervals.get(0).start;
+        int currentEnd = intervals.get(0).end;
+        for (Interval each: intervals){
+            if (each.start < currentEnd){  // Overlapping intervals
+                currentEnd = Math.max(currentEnd,interval.end);
+            } else {                       // Disjoint intervals
+                result.add(new Interval(currentStart,currentEnd));
+                currentStart = each.start;
+                currentEnd = each.end;
             }
         }
-        return ans;
+        result.add(new Interval(currentStart,currentEnd));
+        return result;
     }
 }
