@@ -24,7 +24,7 @@ public class Solution {
         int currentEnd = intervals.get(0).end;
         for (Interval each: intervals){
             if (each.start < currentEnd){  // Overlapping intervals
-                currentEnd = Math.max(currentEnd,interval.end);
+                currentEnd = Math.max(currentEnd,current.end);
             } else {                       // Disjoint intervals
                 result.add(new Interval(currentStart,currentEnd));
                 currentStart = each.start;
