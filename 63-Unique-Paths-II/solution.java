@@ -9,10 +9,10 @@ public class Solution {
         int[][] paths = new int[m][n];
         
         for (int i = 0; i < m; i++){
-            paths[i][0] = obstacleGrid[i][0] != 0 ? break:1;
+            paths[i][0] = obstacleGrid[i][0] != 0 ? 0:1;
         }
         for (int j = 0; j < n; j++){
-            path[0][j] = obstacleGrid[0][j] != 0 ? break:1;
+            path[0][j] = obstacleGrid[0][j] != 0 ? 0:1;
         }
         for (int i = 1; i < m; i++){
             for (int j = 1; j < n; j++){
