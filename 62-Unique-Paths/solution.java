@@ -17,6 +17,6 @@ public class Solution {
                 result[i][j] = result[i-1][j] + result[i][j-1];
             }
         }
-        return result[m-1][j-1];
+        return result[m-1][n-1];
     }
 }
