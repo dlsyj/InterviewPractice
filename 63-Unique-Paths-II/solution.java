@@ -9,10 +9,18 @@ public class Solution {
         int[][] paths = new int[m][n];
         
         for (int i = 0; i < m; i++){
-            paths[i][0] = obstacleGrid[i][0] != 0 ? 0:1;
+            if (obstacleGrid[i][0] == 1){
+                break;      // Notice !!!! stop here to avoid 1 after 0
+            }else{
+                paths[i][0] = 1;
+            }
         }
         for (int j = 0; j < n; j++){
-            path[0][j] = obstacleGrid[0][j] != 0 ? 0:1;
+            if (obstacleGrid[0][j] == 1){
+                break;
+            }else{
+                paths[0][j] = 1;
+            }
         }
         for (int i = 1; i < m; i++){
             for (int j = 1; j < n; j++){
