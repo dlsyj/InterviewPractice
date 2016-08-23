@@ -1,19 +1,12 @@
 public class Solution {
     public double myPow(double x, int n) {
-        // Recursion
-        if (n < 0){
-            return 1/x * myPow(1/x,-1*(n+1));
+        double ans = 1;
+        long absN = Math.Abs((long)n);
+        while(absN > 0) {
+            if((absN&1)==1) ans *= x;
+            absN >>= 1;
+            x *= x;
         }
-        if (n == 0){
-            return 1;
-        }
-        if (n == 2){
-            return x * x;
-        }
-        if (n % 2 == 0){
-            return myPow(myPow(x, n/2),2);
-        } else {
-            return x * myPow(myPow(x,n/2),2);
-        }
+        return n < 0 ?  1/ans : ans;
     }
 }
