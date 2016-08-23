@@ -23,7 +23,7 @@ public class Solution {
         // Iterate and merge
         for (int i = 0, j = 0; i < len; i++){
             if (i == len -1 || startArray[i+1] > endArray[i]){
-                ans.add(Interval(startArray[i],endArray[i]));
+                ans.add(new Interval(startArray[j],endArray[i]));
                 j = i+1;
             }
         }
