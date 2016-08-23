@@ -7,7 +7,7 @@ public class Solution {
         int globalMax = Integer.MIN_VALUE, localSum = 0;
         for (int each : nums){
             localSum += each;
-            globalMax = Math.max(globalMax,sum);
+            globalMax = Math.max(globalMax,localSum);
             localSum = Math.max(localSum,0);
         }
         return globalMax;
