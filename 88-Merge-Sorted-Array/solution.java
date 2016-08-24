@@ -1,20 +1,12 @@
 public class Solution {
-    public void merge(int[] nums1, int m, int[] nums2, int n) {
-        // Corner Case
-        // if (nums1 == null || nums2 == null){
-        //     return;
-        // }
-         // keep three indexes: last index in nums1, last index in nums2, last index in result
-        int index1 = m - 1, index2 = n - 1, indexAns = m + n - 1;
-        while (index1 >= 0 && index2 >= 0){
-            if (nums1[index1] > nums2[index2]){
-                nums1[indexAns--] = nums1[index1--];
-            }else{
-                nums1[indexAns--] = nums2[index2--];
-            }
-        }
-        while (index2 >= 0){
-            nums1[indexAns--] = nums2[index2--];
+    public void merge(int A[], int m, int B[], int n) {
+        int i = m-1;
+        int j = n-1;
+        for (int k = m+n-1; k >= 0; k--) {
+            if (i < 0)              A[k] = B[j--];
+            else if (j < 0)         A[k] = A[i--];
+            else if (A[i] < B[j])   A[k] = B[j--];
+            else                    A[k] = A[i--];
         }
     }
 }
