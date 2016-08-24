@@ -1,17 +1,10 @@
 public class Solution {
     public int mySqrt(int x) {
-        if (x <= 1){
-            return x;
+        int res = 0;
+        for (int mask = 1 << 15; mask != 0; mask >>>= 1) {
+            int next = res | mask; //set bit
+            if (next <= x / next) res = next;
         }
-        int left = 1, right = x;
-        while(left < right){
-            int mid = left + (right - left)/2;
-            if (mid <= x/mid){
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
-        }
-        return left - 1;
+        return res;
     }
 }
