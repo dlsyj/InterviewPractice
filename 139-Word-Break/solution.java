@@ -1,24 +1,30 @@
 public class Solution {
     public boolean wordBreak(String s, Set<String> wordDict) {
-        // DP:probe based on previous successful match
-        if (wordDict.contains(s)) return true;
-        Queue<Integer> queue = new LinkedList<Integer>();
-        queue.offer(0);
-        // use a set to record checked index to avoid repeated work.
-        // This is the key to reduce the running time to O(N^2).
-        Set<Integer> visited = new HashSet<Integer>();
-        visited.add(0);
-        while (!queue.isEmpty()) {
-            int curIdx = queue.poll();
-            for (int i = curIdx+1; i <= s.length(); i++) {
-                if (visited.contains(i)) continue;
-                if (wordDict.contains(s.substring(curIdx, i))) {
-                    if (i == s.length()) return true;
-                    queue.offer(i);
-                    visited.add(i);
+        // BFS
+        queue<int> BFS;
+        unordered_set<int> visited;
+        
+        BFS.push(0);
+        while(BFS.size() > 0)
+        {
+            int start = BFS.front();
+            BFS.pop();
+            if(visited.find(start) == visited.end())
+            {
+                visited.insert(start);
+                for(int j=start; j<s.size(); j++)
+                {
+                    string word(s, start, j-start+1);
+                    if(dict.find(word) != dict.end())
+                    {
+                        BFS.push(j+1);
+                        if(j+1 == s.size())
+                            return true;
+                    }
                 }
             }
         }
+        
         return false;
     }
 }
