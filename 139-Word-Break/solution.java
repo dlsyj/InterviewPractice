@@ -1,30 +1,25 @@
 public class Solution {
-    public boolean wordBreak(String s, Set<String> wordDict) {
-        // BFS
-        queue<int> BFS;
-        unordered_set<int> visited;
-        
-        BFS.push(0);
-        while(BFS.size() > 0)
-        {
-            int start = BFS.front();
-            BFS.pop();
-            if(visited.find(start) == visited.end())
-            {
-                visited.insert(start);
-                for(int j=start; j<s.size(); j++)
-                {
-                    string word(s, start, j-start+1);
-                    if(dict.find(word) != dict.end())
-                    {
-                        BFS.push(j+1);
-                        if(j+1 == s.size())
-                            return true;
-                    }
-                }
-            }
+    public boolean wordBreak(String s, Set<String> dict) {
+        // DFS
+        Set<Integer> set = new HashSet<Integer>();
+        return dfs(s, 0, dict, set);
+    }
+    
+    private boolean dfs(String s, int index, Set<String> dict, Set<Integer> set){
+        // base case
+        if(index == s.length()) return true;
+        // check memory
+        if(set.contains(index)) return false;
+        // recursion
+        for(int i = index+1;i <= s.length();i++){
+            String t = s.substring(index, i);
+            if(dict.contains(t))
+                if(dfs(s, i, dict, set))
+                    return true;
+                else
+                    set.add(i);
         }
-        
+        set.add(index);
         return false;
     }
 }
