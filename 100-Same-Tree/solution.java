@@ -31,7 +31,7 @@ public class Solution {
                 stack_q.push(cur_q.left);
             } 
             if (stack_p.size() != stack_q.size()){
-                return false;
+                return false;   // prune
             }
             if (cur_p.right != null){
                 stack_p.push(cur_p.right);
@@ -40,7 +40,7 @@ public class Solution {
                 stack_q.push(cur_q.right);
             }
             if (stack_p.size() != stack_q.size()){
-                return false;
+                return false;   // prune
             }
         }
         return stack_p.size() == stack_q.size();
