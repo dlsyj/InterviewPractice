@@ -9,9 +9,9 @@
  */
 public class Solution {
     public boolean isSymmetric(TreeNode root) {
-        return root == null || helper(root.left, root.right);
+        // Recursive Solution
+        return root == null || helper(root.left,root.right);
     }
-    
     public boolean helper(TreeNode left, TreeNode right){
         if (left == null || right == null){
             return left == right;
@@ -21,4 +21,6 @@ public class Solution {
         }
         return helper(left.left,right.right) && helper(left.right,right.left);
     }
+    
+    
 }
