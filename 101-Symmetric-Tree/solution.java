@@ -9,18 +9,26 @@
  */
 public class Solution {
     public boolean isSymmetric(TreeNode root) {
-        // Recursive Solution
-        return root == null || helper(root.left,root.right);
-    }
-    public boolean helper(TreeNode left, TreeNode right){
-        if (left == null || right == null){
-            return left == right;
+        if (root == null){
+            return true;
         }
-        if (left.val != right.val){
-            return false;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        stack.push(root.left);
+        stack.push(root.right);
+        while (!stack.isEmpty()){
+            TreeNode rightNode = stack.pop();
+            TreeNode leftNode = stack.pop();
+            if (leftNode == null && rightNode == null){
+                continue; 
+            }
+            if (leftNode == null || rightNode == null || leftNode.val != rightNode.val){
+                return false;
+            }
+            stack.push(leftNode.left);
+            stack.push(rightNode.right);
+            stack.push(leftNode.right);
+            stack.push(rightNode.left);
         }
-        return helper(left.left,right.right) && helper(left.right,right.left);
+        return true;
     }
-    
-    
 }
