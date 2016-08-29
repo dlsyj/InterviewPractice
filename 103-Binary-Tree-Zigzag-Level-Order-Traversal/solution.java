@@ -9,6 +9,7 @@
  */
 public class Solution {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        // DFS recursive solution
         List<List<Integer>> wrapList = new ArrayList<List<Integer>>();
         DFShelper(wrapList,root,0,true);
         return wrapList;
@@ -21,12 +22,8 @@ public class Solution {
             wrapList.add(new ArrayList<Integer>());
         }
         if (fromLeftToRight){
-            System.out.print("true: ");
-            System.out.println(root.val);
             wrapList.get(height).add(root.val);
         } else {
-            System.out.print("false: ");
-            System.out.println(root.val);
             wrapList.get(height).add(0,root.val);
         }
         fromLeftToRight = fromLeftToRight? false: true;
