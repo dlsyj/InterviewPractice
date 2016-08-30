@@ -7,27 +7,36 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+
 public class Solution {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        // DFS recursive solution
-        List<List<Integer>> wrapList = new ArrayList<List<Integer>>();
-        DFShelper(wrapList,root,0,true);
-        return wrapList;
-    }
-    public void DFShelper(List<List<Integer>> wrapList, TreeNode root, int height, boolean fromLeftToRight){
+        // BFS iterative solution
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        List<List<Integer>> wraplist = new ArrayList<List<Integer>>();
+        boolean fromLeftToRight = true;
         if (root == null){
-            return;
+            return wraplist;
         }
-        if (height >= wrapList.size()){
-            wrapList.add(new ArrayList<Integer>());
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            int levelNum = queue.size();
+            List<Integer> sublist = new ArrayList<Integer>();
+            for (int i = 0; i < levelNum; i++){
+                if (queue.peek().left != null){
+                    queue.offer(queue.peek().left);
+                }
+                if (queue.peek().right != null){
+                    queue.offer(queue.peek().right);
+                }
+                if (fromLeftToRight){
+                    sublist.add(queue.poll().val);
+                } else {
+                    sublist.add(0,queue.poll().val);
+                }
+            }
+            fromLeftToRight = fromLeftToRight ? false:true;
+            wraplist.add(sublist);
         }
-        if (fromLeftToRight){
-            wrapList.get(height).add(root.val);
-        } else {
-            wrapList.get(height).add(0,root.val);
-        }
-        fromLeftToRight = fromLeftToRight? false: true;
-        DFShelper(wrapList,root.left,height+1,fromLeftToRight);
-        DFShelper(wrapList,root.right,height+1,fromLeftToRight);
+        return wraplist;
     }
 }
