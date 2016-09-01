@@ -12,23 +12,23 @@ public class Solution {
         if (preorder.length != inorder.length){
             return null;
         }
-        return helper(preorder,0,inorder,0,inorder.length);
+        return helper(preorder,0,inorder,0,inorder.length-1);
     }
     
     public TreeNode helper(int[] preorder, int preStart, int[] inorder, int inStart, int inEnd){
-        if (preStart >= preorder.length || inStart >= inEnd){
+        if (preStart >= preorder.length || inStart > inEnd){
             return null;
         }
         TreeNode root = new TreeNode(preorder[preStart]);
         int index = 0;
-        for (int i = inStart; i < inEnd; i++){
+        for (int i = inStart; i <= inEnd; i++){
             if (root.val == inorder[i]){
                 index = i;
                 break;
             }
         }
         root.left = helper(preorder,preStart+1,inorder,inStart,index-1);
-        root.right = helper(preorder,preStart+index-inStart,inorder,index+1,inEnd);
+        root.right = helper(preorder,preStart+index-inStart+1,inorder,index+1,inEnd);
         return root;
     }
 }
