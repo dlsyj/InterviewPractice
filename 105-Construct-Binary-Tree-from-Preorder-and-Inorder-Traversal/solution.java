@@ -9,26 +9,22 @@
  */
 public class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        return helper(inorder,0,inorder.length,preorder,0);
+        return helper(0, 0, inorder.length - 1, preorder, inorder);
     }
     
-    public TreeNode helper(int[] inorder, int inStart, int inEnd, int[] preorder, int preStart){
-        // Ending condition for recursion
-        if (preStart > preorder.length - 1 || inStart > inEnd){
+    public TreeNode helper(int preStart, int inStart, int inEnd, int[] preorder, int[] inorder) {
+        if (preStart > preorder.length - 1 || inStart > inEnd) {
             return null;
         }
-        // First element in preorder is root of Binary Tree
         TreeNode root = new TreeNode(preorder[preStart]);
-        int inIndex = 0;
-        // First root in inorder to split left and right sub-trees
-        for (int i = inStart; i <= inEnd; i++){
-            if (root.val == inorder[i]){
+        int inIndex = 0; // Index of current root in inorder
+        for (int i = inStart; i <= inEnd; i++) {
+            if (inorder[i] == root.val) {
                 inIndex = i;
-                break;
             }
         }
-        root.left = helper(inorder,inStart,inIndex-1,preorder,preStart+1);
-        root.right = helper(inorder,inIndex+1,inEnd,preorder,preStart+inIndex-inStart+1);
+        root.left = helper(preStart + 1, inStart, inIndex - 1, preorder, inorder);
+        root.right = helper(preStart + inIndex - inStart + 1, inIndex + 1, inEnd, preorder, inorder);
         return root;
     }
 }
