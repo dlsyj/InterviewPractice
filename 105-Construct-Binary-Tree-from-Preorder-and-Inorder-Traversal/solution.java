@@ -19,7 +19,7 @@ public class Solution {
         if (preStart >= preorder.length || inStart >= inEnd){
             return null;
         }
-        TreeNode root = new TreeNode(preorder[0]);
+        TreeNode root = new TreeNode(preorder[preStart]);
         int index = 0;
         for (int i = inStart; i < inEnd; i++){
             if (root.val == inorder[i]){
