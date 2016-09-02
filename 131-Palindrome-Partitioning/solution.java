@@ -1,27 +1,30 @@
 public class Solution {
-    public boolean isPalindrome(String str, int index){
-        for (int head = 0, tail = index - 1; head <= tail; head++, tail--){
-            if (str.charAt(head) != str.charAt(tail)){
+    public boolean isPalindrome(String str){
+        int startIndex = 0, endIndex = str.length() - 1;
+        while (startIndex <= endIndex){
+            if (str.charAt(startIndex) != str.charAt(endIndex)){
                 return false;
             }
+            startIndex ++;
+            endIndex --;
         }
         return true;
     }
     
     public List<List<String>> partition(String s) {
-        List<List<String>> ans = new ArrayList();
+        List<List<String>> result = new ArrayList<List<String>>();
         if (s.equals("")){
-            ans.add(new ArrayList<String>());
-            return ans;
+            result.add(new ArrayList<String>());
+            return result;
         }
         for (int i = 0; i < s.length(); i++){
-            if (isPalindrome(s,i+1)){
+            if (isPalindrome(s.substring(0,i+1))){
                 for (List<String> eachList : partition(s.substring(i+1))){
                     eachList.add(0,s.substring(0,i+1));
-                    ans.add(eachList);
+                    result.add(eachList);
                 }
             }
         }
-        return ans;
+        return result;
     }
 }
