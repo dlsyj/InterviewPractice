@@ -17,12 +17,14 @@ public class Solution {
             TreeLinkNode cur = dummy.next, pre = dummy;
             dummy.next = null;
             while(cur != null){
-                if(cur.left != null)
-                    pre = pre.next;
+                if(cur.left != null){
                     pre.next = cur.left;
-                if(cur.right != null)
                     pre = pre.next;
+                }
+                if(cur.right != null){
                     pre.next = cur.right;
+                    pre = pre.next;
+                }
                 cur = cur.next;
             }
         }
