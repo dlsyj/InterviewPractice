@@ -19,10 +19,10 @@ public class Solution {
             while(cur != null){
                 if(cur.left != null)
                     pre.next = cur.left;
-                    pre = pre.next;
+                    pre = cur.left;
                 if(cur.right != null)
                     pre.next = cur.right;
-                    pre = pre.next;
+                    pre = cur.right;
                 cur = cur.next;
             }
         }
