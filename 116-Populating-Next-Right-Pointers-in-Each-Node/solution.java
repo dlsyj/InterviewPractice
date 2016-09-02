@@ -8,14 +8,14 @@
  */
 public class Solution {
     public void connect(TreeLinkNode root) {
-        while (root != null && root.left != null){
-            TreeLinkNode current = root;
-            while (current != null){
-                current.left.next = current.right;
-                current.right.next = current.next == null ? null : current.next.left;
-                current = current.next;
-            }
-            root = root.left;
+        if (root == null){
+            return;
         }
+        if (root.left != null){
+            root.left.next = root.right;
+            root.right.next = root.next == null ? null : root.next.left;
+        }
+        connect(root.left);
+        connect(root.right);
     }
 }
