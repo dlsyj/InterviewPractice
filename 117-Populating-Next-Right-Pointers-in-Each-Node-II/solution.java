@@ -11,7 +11,7 @@ public class Solution {
         TreeLinkNode node = root;
         TreeLinkNode levelHead = new TreeLinkNode(0);
         while (node != null){
-            TreeLinkeNode needle = levelHead;
+            TreeLinkNode needle = levelHead;
             while (node != null){
                 if (node.left != null){
                     needle.next = node.left;
