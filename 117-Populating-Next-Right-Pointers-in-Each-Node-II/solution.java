@@ -18,9 +18,11 @@ public class Solution {
             dummy.next = null;
             while(cur != null){
                 if(cur.left != null)
-                    pre = pre.next = cur.left;
+                    pre.next = cur.left;
+                    pre = pre.next;
                 if(cur.right != null)
-                    pre = pre.next = cur.right;
+                    pre.next = cur.right;
+                    pre = pre.next;
                 cur = cur.next;
             }
         }
