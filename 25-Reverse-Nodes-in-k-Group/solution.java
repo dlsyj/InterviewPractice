@@ -8,18 +8,21 @@
  */
 public class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
-        int count = k;
-        ListNode node = head;
-        ListNode last = node;
-        while (node != null && count > 0){
-            count --;
+        int count = 0;
+        ListNode curr = head;
+        ListNode prev = null;
+        while (node != null && count < k){
+            count ++;
+            prev = node;
             node = node.next;
         }
-        if (count == 0){
-            node.next = reverseKGroup(node.next, k);
-            return reverseNode(last);
+        if (count == k){
+            prev.next = null;
+            reverseNode(head);
+            head.next = reverseKGroup(node,k);
+            return prev;
         } else {
-            return last;
+            return head;
         }
         
 
