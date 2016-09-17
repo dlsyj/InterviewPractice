@@ -3,7 +3,7 @@ public class Solution {
         int len1 = nums1.length;
         int len2 = nums2.length;
         if (len1 > len2){
-            // make sure nums2 is the shorter one
+            // make sure nums2 is the longer one
             return findMedianSortedArrays(nums2,nums1);
         }
         int left = 0, right = len1 * 2;
