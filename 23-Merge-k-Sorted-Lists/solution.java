@@ -11,11 +11,17 @@ public class Solution {
         return partition(lists, 0, lists.length - 1);
     }
     public ListNode partition(ListNode[] lists, int left, int right){
+        if (left == right){
+            return lists[left];
+        }
+        if (left < right){
             int mid = left + (right - left) / 2;
             ListNode leftNode = partition(lists, left, mid);
             ListNode rightNode = partition(lists, mid + 1, right);
             return mergeTwoLists(leftNode, rightNode);
-        
+        } else {
+            return null;
+        }
     } 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2){
         if (l1 == null){
