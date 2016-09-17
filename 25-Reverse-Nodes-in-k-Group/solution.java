@@ -11,15 +11,15 @@ public class Solution {
         int count = 0;
         ListNode curr = head;
         ListNode prev = null;
-        while (node != null && count < k){
+        while (curr != null && count < k){
             count ++;
-            prev = node;
-            node = node.next;
+            prev = curr;
+            curr = curr.next;
         }
         if (count == k){
             prev.next = null;
             reverseNode(head);
-            head.next = reverseKGroup(node,k);
+            head.next = reverseKGroup(curr,k);
             return prev;
         } else {
             return head;
