@@ -16,9 +16,9 @@ public class Solution {
             while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]){
                 deque.pollLast();
             }
-            deque.addFirst(nums[i]);
+            deque.offer(i);
             if (i >= k - 1){
-                result[resultIndex++] = deque.peek();
+                result[resultIndex++] = nums[deque.peek()];
             }
         }
         return result;
