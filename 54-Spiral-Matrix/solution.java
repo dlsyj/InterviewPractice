@@ -9,35 +9,30 @@ public class Solution {
         int left = 0;
         int right = matrix[0].length - 1;
         
-        while (true){
+        while (left <= right && top <= bottom){
             for (int i = left; i <= right; i ++){
                 result.add(matrix[top][i]);
             }
             top ++;
-            if (left > right || top > bottom){
-                break;
-            }
+
             for (int i = top; i <= bottom; i ++){
                 result.add(matrix[i][right]);
             }
             right --;
-            if (left > right || top > bottom){
-                break;
-            }
-            for (int i = right; i >= left; i --){
-                result.add(matrix[bottom][i]);
+            
+            if (top <= bottom){
+                for (int i = right; i >= left; i --){
+                    result.add(matrix[bottom][i]);
+                }
             }
             bottom --;
-            if (left > right || top > bottom){
-                break;
-            }
-            for (int i = bottom; i >= top; i --){
-                result.add(matrix[i][left]);
+            
+            if (left <= right){
+                for (int i = bottom; i >= top; i --){
+                    result.add(matrix[i][left]);
+                }
             }
             left ++;
-            if (left > right || top > bottom){
-                break;
-            }
         }
         return result;
     }
