@@ -14,7 +14,7 @@ public class Solution {
         }
         for (int j = 0; j <= current.size(); j ++){
             List<Integer> newCopy = new ArrayList<Integer>(current);
-            newCopy.add(j, nums[i]);
+            newCopy.add(j, nums[index]);
             backTracking(result, nums, newCopy, index + 1);
         }
     }
