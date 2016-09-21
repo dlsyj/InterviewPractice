@@ -14,6 +14,5 @@ public class Solution {
                 matrix[i][matrix[0].length - j - 1] = temp;
             }
         }
-        return matrix;
     }
 }
