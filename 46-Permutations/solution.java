@@ -7,7 +7,7 @@ public class Solution {
         backTracking(result, nums, new ArrayList<Integer>(), 0);
         return result;
     }
-    public void backTracking(List<List<Integer>> result, int[] nums, ArrayList<Integer> current, int index){
+    public void backTracking(List<List<Integer>> result, int[] nums, List<Integer> current, int index){
         if (current.size() == nums.length){
             result.add(current);
             return;
