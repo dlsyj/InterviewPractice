@@ -4,20 +4,18 @@ public class Solution {
         if (nums == null || nums.length == 0){
             return result;
         }
-        List<Integer> first = new ArrayList<Integer>();
-        first.add(nums[0]);
-        result.add(first);
-        for (int i = 1; i < nums.length; i ++){
-            List<List<Integer>> tempResult = new ArrayList<List<Integer>>();
-            for (int j = 0; j <= i; j ++){
-                for (List<Integer> each : result){
-                    List<Integer> newEach = new ArrayList<Integer>(each);
-                    newEach.add(j,nums[i]);
-                    tempResult.add(newEach);
-                }
-            }
-            result = tempResult;
-        }
+        backTracking(result, nums, new ArrayList<Integer>(), 0);
         return result;
+    }
+    public void backTracking(List<List<Integer>> result, int[] nums, ArrayList<Integer> current, int index){
+        if (current.size() == nums.length){
+            result.add(current);
+            return;
+        }
+        for (int j = 0; j <= current.size(); j ++){
+            List<Integer> newCopy = new ArrayList<Integer>(current);
+            newCopy.add(j, nums[i]);
+            backTracking(result, nums, newCopy, index + 1);
+        }
     }
 }
