@@ -24,7 +24,7 @@ public class Solution {
         if (i < 0 || i >= board.length || j < 0 || j >= board[0].length){
             return false;
         }
-        boolean found ＝ false;
+        boolean found = false;
         if (board[i][j] == word.charAt(index)){
             board[i][j] = '*';
             found = DFShelper(board, word, i - 1, j, index + 1) || DFShelper(board, word, i + 1, j, index + 1) || DFShelper(board, word, i, j - 1, index + 1) || DFShelper(board, word, i, j + 1, index + 1);
