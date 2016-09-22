@@ -31,7 +31,7 @@ public class Solution {
         }
         if (firstRowZero){
             for (int i = 0; i < column; i ++){
-                matrix[0][j] = 0;
+                matrix[0][i] = 0;
             }
         }
         if (firstColumnZero){
