@@ -3,14 +3,17 @@ public class Solution {
         if (nums == null || nums.length == 0){
             return;
         }
-        int leftPointer = 0, rightPointer = nums.length - 1;
-        for (int i = 0; i < nums.length; i ++){
+        int leftPointer = 0, rightPointer = nums.length - 1, int i = 0;
+        while (i <= rightPointer){
             if (nums[i] == 0){
                 // found 0, put it in the beginning
                 swap(nums[i], nums[leftPointer++]);
+                i ++;
             }else if (nums[i] == 2){
                 // found 2, put it in the end
-                swap(nums[i--], nums[rightPointer--]);
+                swap(nums[i], nums[rightPointer--]);
+            }else{
+                i ++;
             }
         }
     }
