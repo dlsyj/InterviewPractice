@@ -15,7 +15,7 @@ public class Solution {
                         firstRowZero = true;
                     }
                     if (j == 0){
-                        firstColumn = true;
+                        firstColumnZero = true;
                     }
                     matrix[0][j] = 0;
                     matrix[i][0] = 0;
