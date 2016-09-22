@@ -4,7 +4,7 @@ public class Solution {
             return;
         }
         int leftPointer = 0, rightPointer = nums.length - 1;
-        for (int i = 0; i < nums.length; ){
+        for (int i = leftPointer; i <= rightPointer; ){
             if (nums[i] == 0){
                 // found 0, put it in the beginning
                 swap(nums[i], nums[leftPointer]);
