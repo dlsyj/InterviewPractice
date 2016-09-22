@@ -10,7 +10,7 @@ public class Solution {
                 int temp = nums[i];
                 nums[i] = nums[leftPointer];
                 nums[leftPointer] = temp;
-                leftPointer++
+                leftPointer++;
             }else if (nums[i] == 2){
                 // found 2, put it in the end
                 int temp = nums[i];
