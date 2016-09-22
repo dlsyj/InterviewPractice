@@ -1,29 +1,24 @@
 public class Solution {
-    public void sortColors(int[] nums) {
-        if (nums == null || nums.length < 2){
-            return;
-        }
-        int leftPointer = 0, rightPointer = nums.length - 1;
-        for (int i = leftPointer; i <= rightPointer; ){
-            if (nums[i] == 0){
-                // found 0, put it in the beginning
-                swap(nums[i], nums[leftPointer]);
-                i ++;
-                leftPointer ++;
-            }
-            if (nums[i] == 2){
-                // found 2, put it in the end
-                swap(nums[i], nums[rightPointer]);
-                rightPointer --;
-            } else {
-                i ++;
-            }
-        }
-    }
-    
-    public void swap(int index1, int index2){
-        int temp = index1;
-        index1 = index2;
-        index2 = temp;
-    }
+    public void sortColors(int[] A) {
+       if(A==null || A.length<2) return;
+       int low = 0; 
+       int high = A.length-1;
+       for(int i = low; i<=high;) {
+           if(A[i]==0) {
+              // swap A[i] and A[low] and i,low both ++
+              int temp = A[i];
+              A[i] = A[low];
+              A[low]=temp;
+              i++;low++;
+           }else if(A[i]==2) {
+               //swap A[i] and A[high] and high--;
+              int temp = A[i];
+              A[i] = A[high];
+              A[high]=temp;
+              high--;
+           }else {
+               i++;
+           }
+       }
+   }
 }
