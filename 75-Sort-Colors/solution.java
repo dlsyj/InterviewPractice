@@ -7,11 +7,11 @@ public class Solution {
         for (int i = 0; i < nums.length; i ++){
             if (nums[i] == 0){
                 // found 0, put it in the beginning
-                swap(nums, i, leftPointer++);
+                swap(nums, nums[i], nums[leftPointer++]);
             }
             if (nums[i] == 2){
                 // found 2, put it in the end
-                swap(nums, i--, rightPointer--);
+                swap(nums, nums[i--], nums[rightPointer--]);
             }
         }
     }
