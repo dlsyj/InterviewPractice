@@ -12,8 +12,8 @@ public class Solution {
         if (root == null){
             return;
         }
-        TreeNode leftNode = root.left;
         TreeNode rightNode = root.right;
+        TreeNode leftNode = root.left;
         flatten(rightNode);
         flatten(leftNode);
         root.left = null;
