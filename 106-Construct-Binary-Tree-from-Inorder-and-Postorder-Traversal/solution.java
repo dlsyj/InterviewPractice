@@ -9,23 +9,25 @@
  */
 public class Solution {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        return helper(inorder,0,inorder.length-1,postorder,postorder.length-1);
-    }
-    
-    public TreeNode helper(int[] inorder, int inStart, int inEnd, int[] postorder, int postEnd){
-        if (postEnd < 0 || inStart > inEnd){
+        if (inorder.length != postorder.length){
             return null;
         }
-        TreeNode root = new TreeNode(postorder[postEnd]);
-        int inIndex = 0;
-        for (int i = inStart; i <= inEnd; i++){
+        return helper(inorder, 0, inorder.length - 1, postorder, postorder.length - 1);
+    }
+    public TreeNode helper(int[] inorder, int inStart, int inEnd, int[] postorder, int postStart){
+        if (postStart >= postorder.length || inStart > inEnd){
+            return null;
+        }
+        TreeNode root = new TreeNode(postorder[postStart]);
+        int index = 0;
+        for (int i = inStart; i <= inEnd; i ++){
             if (root.val == inorder[i]){
-                inIndex = i;
+                index = i;
                 break;
             }
         }
-        root.left = helper(inorder,inStart,inIndex-1,postorder,postEnd-(inEnd-inIndex)-1);
-        root.right = helper(inorder,inIndex+1,inEnd,postorder,postEnd-1);
+        root.left = helper(inorder, inStart, index - 1, postorder, index - inStart);
+        root.right = helper(inorder, index + 1, inEnd, postorder, postStart - 1);
         return root;
     }
 }
