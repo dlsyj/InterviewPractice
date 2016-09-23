@@ -8,18 +8,18 @@
  * }
  */
 public class Solution {
-    // Recursive method
+    // Iterative method
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<Integer>();
-        if (root == null){
-            return result;
-        }
-        if (root.left != null){
-            result.addAll(inorderTraversal(root.left));
-        }
-        result.add(root.val);
-        if (root.right != null){
-            result.addAll(inorderTraversal(root.right));
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        while (root != null || !stack.isEmpty()){
+            while (root != null){
+                stack.push(root);
+                root = root.left;
+            }
+            TreeNode curr = stack.pop();
+            result.add(curr.val);
+            root = curr.right;
         }
         return result;
     }
