@@ -9,7 +9,7 @@
  */
 public class Solution {
     public boolean isValidBST(TreeNode root) {
-        // Interation Solution
+        // Iterative Solution
         Stack<TreeNode> stack = new Stack<TreeNode>();
         TreeNode preNode = null;
         while (!stack.isEmpty() || root != null){
