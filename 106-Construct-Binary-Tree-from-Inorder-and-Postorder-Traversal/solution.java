@@ -14,11 +14,11 @@ public class Solution {
         }
         return helper(inorder, 0, inorder.length - 1, postorder, postorder.length - 1);
     }
-    public TreeNode helper(int[] inorder, int inStart, int inEnd, int[] postorder, int postStart){
-        if (postStart >= postorder.length || inStart > inEnd){
+    public TreeNode helper(int[] inorder, int inStart, int inEnd, int[] postorder, int postEnd){
+        if (postEnd >= postorder.length || inStart > inEnd){
             return null;
         }
-        TreeNode root = new TreeNode(postorder[postStart]);
+        TreeNode root = new TreeNode(postorder[postEnd]);
         int index = 0;
         for (int i = inStart; i <= inEnd; i ++){
             if (root.val == inorder[i]){
@@ -26,8 +26,8 @@ public class Solution {
                 break;
             }
         }
-        root.left = helper(inorder, inStart, index - 1, postorder, index - inStart);
-        root.right = helper(inorder, index + 1, inEnd, postorder, postStart - 1);
+        root.left = helper(inorder, inStart, index - 1, postorder, postEnd - inEnd + index - 1);
+        root.right = helper(inorder, index + 1, inEnd, postorder, postEnd - 1);
         return root;
     }
 }
