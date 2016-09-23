@@ -22,7 +22,7 @@ public class Solution {
                 return false;
             }
             preNode = curr;
-            root = root.right;
+            root = curr.right;
             
         }
         return true;
