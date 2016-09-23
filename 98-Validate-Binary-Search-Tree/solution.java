@@ -11,20 +11,19 @@ public class Solution {
     public boolean isValidBST(TreeNode root) {
         // Interation Solution
         Stack<TreeNode> stack = new Stack<TreeNode>();
-        TreeNode curr = root;
-        TreeNode pre = null;
-        while (!stack.isEmpty() || curr != null){
-            if (curr != null){
-                stack.push(curr);
-                curr = curr.left;
-            } else {
-                TreeNode node = stack.pop();
-                if (pre != null && node.val <= pre.val){
-                    return false;
-                }
-                pre = node;
-                curr = node.right;
+        TreeNode preNode = null;
+        while (!stack.isEmpty() || root != null){
+            while (root != null){
+                stack.push(root);
+                root = root.left;
             }
+            TreeNode curr = stack.pop();
+            if (preNode != null && curr.val <= preNode.val){
+                return false;
+            }
+            preNode = curr;
+            root = root.right;
+            
         }
         return true;
     }
