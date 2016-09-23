@@ -18,7 +18,7 @@ public class Solution {
         flatten(leftNode);
         root.left = null;
         root.right = leftNode;
-        while (root != null){
+        while (root.right != null){
             root = root.right;
         }
         root.right = rightNode;
