@@ -7,7 +7,7 @@ public class Solution {
             if (nums[mid] < nums[lo]) {
                 hi = mid + 1;
             } else {
-                lo = mid;
+                lo = mid - 1;
             }
         }
         return Math.min(nums[lo],nums[hi]);
