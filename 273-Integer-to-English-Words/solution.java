@@ -19,13 +19,13 @@ public class Solution {
         }else if (num < 100){
             result = belowHundred[num/10] +" "+ belowTen[num%10];
         }else if (num < 1000){
-            result = helper[num/100] + " Hundred " + helper(num%100);
+            result = helper(num/100) + " Hundred " + helper(num%100);
         }else if (num < 1000000){
             result = helper(num/1000) + " Thousand " + helper(num%1000);
         }else if (num < 1000000000){
             result = helper(num/1000000) + " Million " + helper(num%1000000);
         }else{
-            result = helper(num/1000000000) + helper(num%1000000000);
+            result = helper(num/1000000000) + " Billion " + helper(num%1000000000);
         }
         return result.trim();
     }
