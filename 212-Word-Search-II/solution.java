@@ -22,12 +22,12 @@ public class Solution {
             p.word = null;     // de-duplicate
         }
     
-        board[i][j] = '#';
+        board[i][j] = '#';  // replace current char
         dfs(board, i - 1, j ,p, res); 
         dfs(board, i, j - 1, p, res);
         dfs(board, i + 1, j, p, res); 
         dfs(board, i, j + 1, p, res); 
-        board[i][j] = c;
+        board[i][j] = c;    // change it back
     }
     
     public TrieNode buildTrie(String[] words) {
