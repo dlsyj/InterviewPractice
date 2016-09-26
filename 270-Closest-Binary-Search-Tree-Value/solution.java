@@ -12,7 +12,7 @@ public class Solution {
         int result = root.val;
         while (root != null){
             if (Math.abs(target - root.val) < Math.abs(target - result)){
-                result = target;   
+                result = root.val;   
             }
             if (target > root.val){
                 root = root.right;
