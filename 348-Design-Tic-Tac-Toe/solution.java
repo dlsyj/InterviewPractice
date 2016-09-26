@@ -20,6 +20,7 @@ private int antiDiagonal;
                 2: Player 2 wins. */
     public int move(int row, int col, int player) {
         int who = player == 1 ? 1 : -1;
+        int n = rows.length;
         rows[row] += who;
         columns[col] += who;
         if (row - col == 0){
@@ -28,7 +29,6 @@ private int antiDiagonal;
         if (row + col == n - 1){
             antiDiagonal += who;
         }
-        int n = rows.length;
         if (Math.abs(rows[row] == n) || Math.abs(columns[col] == n) || Math.abs(diagonal == n) || Math.abs(antiDiagonal == n)){
             return player;
         }
