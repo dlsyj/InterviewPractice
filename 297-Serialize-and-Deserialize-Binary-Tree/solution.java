@@ -9,13 +9,6 @@
  */
 public class Codec {
 
-//     public class TreeNode {
-// 		int val;
-// 		TreeNode left;
-// 		TreeNode right;
-// 		TreeNode(int x) { val = x; }
-// 	}
-	
 	private static final String spliter = ",";
     private static final String NullNode = "X";
 
