@@ -9,6 +9,7 @@
  */
 public class Solution {
     public int closestValue(TreeNode root, double target) {
+        // binary search iterative solution
         int result = root.val;
         while (root != null){
             if (Math.abs(target - root.val) < Math.abs(target - result)){
