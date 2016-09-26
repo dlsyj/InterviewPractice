@@ -19,7 +19,7 @@ private int antiDiagonal;
                 1: Player 1 wins.
                 2: Player 2 wins. */
     public int move(int row, int col, int player) {
-        int who = play == 1 ? 1 : -1;
+        int who = player == 1 ? 1 : -1;
         rows[row] += who;
         columns[col] += who;
         if (row - col == 0){
