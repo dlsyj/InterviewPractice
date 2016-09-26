@@ -9,9 +9,16 @@
  */
 public class Codec {
 
-    private static final String spliter = ",";
+    public class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
+		TreeNode(int x) { val = x; }
+	}
+	
+	private static final String spliter = ",";
     private static final String NullNode = "X";
-    
+
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
@@ -30,12 +37,12 @@ public class Codec {
     }
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        Queue<String> nodes = new LinkedList<>();
+        Deque<String> nodes = new LinkedList<>();
         nodes.addAll(Arrays.asList(data.split(spliter)));
         return buildTree(nodes);
     }
     
-    private TreeNode buildTree(Queue<String> nodes) {
+    private TreeNode buildTree(Deque<String> nodes) {
         String val = nodes.remove();	// remove the first node in deque
         if (val.equals(NullNode)) return null;
         else {
