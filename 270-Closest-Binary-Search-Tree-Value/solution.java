@@ -11,7 +11,9 @@ public class Solution {
     public int closestValue(TreeNode root, double target) {
         int result = root.val;
         while (root != null){
-            result = Math.abs(target - root.val) < Math.abs(target - result) ? root.val : result;
+            if (Math.abs(target - root.val) < Math.abs(target - result)){
+                result = target;   
+            }
             if (target > root.val){
                 root = root.right;
             }else{
