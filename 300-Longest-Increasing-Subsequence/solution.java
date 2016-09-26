@@ -5,8 +5,11 @@ public class Solution {
         if (nums == null || nums.length == 0){
             return 0;
         }
+        if (nums.length == 1){
+            return 1;
+        }
         // Track longest sequence length
-        int[] dp = new int[nums.length;
+        int[] dp = new int[nums.length];
         // Fill each position with value 1 in the array
         for (int i = 0; i < nums.length; i ++){
             dp[i] = 1;
@@ -17,8 +20,8 @@ public class Solution {
                 if (nums[j] < nums[i]){
                     dp[i] = Math.max(dp[j] + 1, dp[i]);
                 }
-                result = Math.max(result, dp[i]);
             }
+            result = Math.max(result, dp[i]);
         }
         return result;
     }
