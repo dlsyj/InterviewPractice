@@ -8,6 +8,7 @@
  * }
  */
 public class Solution {
+    // Iterative solution
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
         TreeNode succ = null;
         while (root != null){
