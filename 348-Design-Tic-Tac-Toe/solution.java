@@ -29,7 +29,7 @@ private int antiDiagonal;
         if (row + col == n - 1){
             antiDiagonal += who;
         }
-        if (Math.abs(rows[row] == n) || Math.abs(columns[col] == n) || Math.abs(diagonal == n) || Math.abs(antiDiagonal == n)){
+        if (Math.abs(rows[row]) == n || Math.abs(columns[col]) == n || Math.abs(diagonal) == n || Math.abs(antiDiagonal) == n){
             return player;
         }
         return 0;
