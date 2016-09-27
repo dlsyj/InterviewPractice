@@ -8,12 +8,12 @@ public class Solution {
         first.add(nums[0]);
         result.add(first);
         for (int i = 1; i < nums.length; i ++){
-            List<List<Integer>> newResult = new ArrayList<List<Integer>>();
+            List<List<Integer>> newResult = ArrayList<List<Integer>>();
             for (int j = 0; j <= i; j ++){
-                for (List<Integer> each : result){
-                    List<Integer> newEach = new ArrayList<Integer>(each);
-                    newEach.add(j,nums[i]);
-                    newResult.add(newEach);
+                for (List<Integer> list : result){
+                    List<Integer> currList = new ArrayList<Integer>(list);
+                    currList.add(j,nums[i]);
+                    newResult.add(currList);
                 }
             }
             result = newResult;
