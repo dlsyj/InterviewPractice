@@ -6,14 +6,14 @@ public class Solution {
             if (nums[mid] == target){
                 return mid;
             }
-            if (nums[start] <= nums[mid]){  // left half is sorted
+            if (nums[start] < nums[mid]){  // left half is sorted
                 if (nums[start] <= target && target < nums[mid]){
                     end = mid - 1;
                 }else{
                     start = mid + 1;
                 }
             }
-            if (nums[mid] <= nums[end]){    // right half is sorted
+            if (nums[mid] < nums[end]){    // right half is sorted
                 if (nums[mid] < target && target <= nums[end]){
                     start = mid + 1;
                 }else{
