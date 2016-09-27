@@ -1,6 +1,6 @@
 public class Solution {
     public int[] twoSum(int[] nums, int target) {
-        int[2] result = new int[2](); 
+        int[] result = new int[2]; 
         // <key: Targert - nums[i], value: i>
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         if (nums == null || nums.length == 0){
