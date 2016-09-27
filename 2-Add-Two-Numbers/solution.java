@@ -13,15 +13,15 @@ public class Solution {
         ListNode dummy = new ListNode(0);
         ListNode d = dummy;
         int num = 0;
-        while (l1 != null || l2 != null){
+        while (c1 != null || c2 != null){
             num /= 10;
-            if (l1 != null){
-                num += l1.val;
-                l1 = l1.next;
+            if (c1 != null){
+                num += c1.val;
+                c1 = c1.next;
             }
-            if (l2 != null){
-                num += l2.val;
-                l2 = l2.next;
+            if (c2 != null){
+                num += c2.val;
+                c2 = c2.next;
             }
             d.next = new ListNode(num % 10);
             d = d.next;
