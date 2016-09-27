@@ -13,22 +13,23 @@ public class Solution {
         ListNode dummy = new ListNode(0);
         ListNode d = dummy;
         int num = 0;
-        while (c1 != null || c2 != null){
+        while (l1 != null || l2 != null){
             num /= 10;
-            if (c1 != null){
-                num += c1.val;
-                c1 = c1.next;
+            if (l1 != null){
+                num += l1.val;
+                l1 = l1.next;
             }
-            if (c2 != null){
-                num += c2.val;
-                c2 = c2.next;
+            if (l2 != null){
+                num += l2.val;
+                l2 = l2.next;
             }
-            d.next = new ListNode(num%10);
+            d.next = new ListNode(num % 10);
             d = d.next;
         }
-        if (num /10 == 1){
+        if (num >= 10){
             d.next = new ListNode(1);
         }
         return dummy.next;
+        // Time: O(Math.max(l1.length, l2.length)), Space: O(1)
     }
 }
