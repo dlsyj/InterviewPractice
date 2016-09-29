@@ -19,7 +19,7 @@ public class BSTIterator {
 
     /** @return whether we have a next smallest number */
     public boolean hasNext() {
-        return !stack.isEmpty() | curr;
+        return !stack.isEmpty() || curr != null;
     }
 
     /** @return the next smallest number */
