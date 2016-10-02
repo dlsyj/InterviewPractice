@@ -1,6 +1,7 @@
 public class RandomizedSet {
     HashMap<Integer, Integer> map;
     List<Integer> list;
+    
     /** Initialize your data structure here. */
     public RandomizedSet() {
         map = new HashMap<Integer, Integer>();
