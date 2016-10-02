@@ -8,13 +8,13 @@ public class Solution {
             return false;
         }
         for (int i = 0; i < s.length(); i ++){
-            arr[(int)s.charAt(i)] ++;
+            arr[s.charAt(i) - 'a'] ++;
         }
         for (int j = 0; j < t.length(); j ++){
-            if (arr[(int)t.charAt(j)] <= 0){
+            if (arr[t.charAt(j) - 'a'] <= 0){
                 return false;
             }else{
-                arr[(int)t.charAt(j)]--;
+                arr[t.charAt(j) - 'a']--;
             }
         }
         return true;
