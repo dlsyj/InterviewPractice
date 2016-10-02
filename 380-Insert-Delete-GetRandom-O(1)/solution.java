@@ -12,7 +12,7 @@ public class RandomizedSet {
         if (map.containsKey(val)){
             return false;
         }
-        map.put(val,map.size() - 1);
+        map.put(val,map.size());
         list.add(val);
         return true;
     }
