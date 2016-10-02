@@ -13,7 +13,7 @@ public class RandomizedSet {
         if (map.containsKey(val)){
             return false;
         }
-        map.put(val,map.size());
+        map.put(val,list.size());
         list.add(val);
         return true;
     }
@@ -25,10 +25,9 @@ public class RandomizedSet {
         }
         int prevIndex = map.get(val);
         int lastElement = list.get(list.size() - 1);
+        map.remove(val);
         map.put(lastElement, prevIndex);
         list.set(prevIndex, lastElement);
-        // remove at last
-        map.remove(val);
         list.remove(list.size() - 1);
         return true;
     }
