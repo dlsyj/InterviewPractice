@@ -23,10 +23,11 @@ public class RandomizedSet {
             return false;
         }
         int prevIndex = map.get(val);
-        int lastElement = list[list.size() - 1];
+        int lastElement = list.get(list.size() - 1);
         map.remove(val);
         map.put(lastElement, prevIndex);
         list.remove(list.size() - 1);
+        return true;
     }
     
     /** Get a random element from the set. */
