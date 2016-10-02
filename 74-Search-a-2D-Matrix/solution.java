@@ -4,8 +4,8 @@ public class Solution {
                 return false;
             }
             int start = 0, rows = matrix.length, cols = matrix[0].length;
-            int end = rows * cols - 1;
-            while (start <= end) {
+            int end = rows * cols;
+            while (start < end) {
                 int mid = start + (end - start) / 2;
                 if (matrix[mid / cols][mid % cols] == target) {
                     return true;
@@ -13,7 +13,7 @@ public class Solution {
                 if (matrix[mid / cols][mid % cols] < target) {
                     start = mid + 1;
                 } else {
-                    end = mid - 1;
+                    end = mid;
                 }
             }
             return false;
