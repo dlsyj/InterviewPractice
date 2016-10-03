@@ -11,7 +11,7 @@ public class Solution {
         int result = iteration;
         for (int i = 1; i < len; i ++){
             iteration = iteration - oneSum + len * nums[i - 1];
-            resut = Math.max(result,iteration);
+            result = Math.max(result,iteration);
         }
         return result;
     }
