@@ -9,7 +9,7 @@ public class Solution {
                 row ++;
             }else if (matrix[row][col] > target){
                 col --;
-            }else(matrix[row][col] == target){
+            }else{
                 return true;
             }
         }
