@@ -5,7 +5,7 @@ public class Solution {
         }
         int[] freq = new int[26];
         int[] loc = new int[26];
-        for (int i = 0; i < s.length; i ++){
+        for (int i = 0; i < s.length(); i ++){
             char curr = s.charAt(i);
             freq[curr - 'a'] ++;
             loc[curr - 'a'] = i;
