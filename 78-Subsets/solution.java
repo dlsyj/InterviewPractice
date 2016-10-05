@@ -1,6 +1,6 @@
 public class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-	    List<List<Integer>> result = new ArrayList<Integer>();
+	    List<List<Integer>> result = new ArrayList<List<Integer>>();
 	    helper(result, nums, new ArrayList<Integer>(), 0);
 	    return result;
 	}
