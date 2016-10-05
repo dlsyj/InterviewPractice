@@ -16,6 +16,9 @@ public class Solution {
     }
     
     public void dfsHelper(List<List<Integer>> result, TreeNode root, int height){
+        if (root == null){
+            return;
+        }
         if (result.size() <= height){
             result.add(new ArrayList<Integer>());
         }
