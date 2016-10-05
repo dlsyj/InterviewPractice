@@ -9,21 +9,18 @@
  */
 public class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        // DFS
-        List<List<Integer>> wraplist = new ArrayList<List<Integer>>();
-        helper(wraplist,root,0);
-        return wraplist;
+        // DFS recursive
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        dfsHelper(result, root, 0);
+        return result;
     }
     
-    public void helper(List<List<Integer>> wraplist, TreeNode root, int height){
-        if (root == null){
-            return;
+    public void dfsHelper(List<List<Integer>> result, TreeNode root, int height){
+        if (result.size() <= height){
+            result.add(new ArrayList<Integer>());
         }
-        if (height >= wraplist.size()){
-            wraplist.add(new ArrayList<Integer>());
-        }
-        wraplist.get(height).add(root.val);
-        helper(wraplist,root.left,height+1);
-        helper(wraplist,root.right,height+1);
+        result.get(height).add(root.val);
+        dfsHelper(result, root.left, height + 1);
+        dfsHelper(result, root.right, height + 1);
     }
 }
