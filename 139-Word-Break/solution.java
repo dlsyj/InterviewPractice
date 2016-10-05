@@ -10,6 +10,6 @@ public class Solution {
                 }
             }
         }
-        return canBreak[s.length() + 1];
+        return canBreak[s.length()];
     }
 }
