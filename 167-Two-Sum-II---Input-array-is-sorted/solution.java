@@ -14,7 +14,7 @@ public class Solution {
             } else {
                 result[0] = left + 1;
                 result[1] = right + 1;
-                break;
+                // break;
             }
         }
         return result;
