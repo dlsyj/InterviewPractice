@@ -11,19 +11,18 @@ public class Solution {
     public boolean isValidBST(TreeNode root) {
         // Iterative Solution
         Stack<TreeNode> stack = new Stack<TreeNode>();
-        TreeNode preNode = null;
-        while (!stack.isEmpty() || root != null){
+        TreeNode prev = null;
+        while (root != null || !stack.isEmpty()){
             while (root != null){
                 stack.push(root);
                 root = root.left;
             }
             TreeNode curr = stack.pop();
-            if (preNode != null && curr.val <= preNode.val){
+            if (prev != null && curr.val <= prev.val){
                 return false;
             }
-            preNode = curr;
+            prev = curr;
             root = curr.right;
-            
         }
         return true;
     }
