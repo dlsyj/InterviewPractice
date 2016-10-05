@@ -11,7 +11,7 @@ public class Solution {
         ListNode c1 = l1;
         ListNode c2 = l2;
         ListNode dummy = new ListNode(0);
-        ListNode d = dummy;
+        ListNode head = dummy;
         int num = 0;
         while (c1 != null || c2 != null){
             num /= 10;
@@ -23,13 +23,12 @@ public class Solution {
                 num += c2.val;
                 c2 = c2.next;
             }
-            d.next = new ListNode(num % 10);
-            d = d.next;
+            head.next = num%10;
+            head = head.next;
         }
         if (num >= 10){
-            d.next = new ListNode(1);
+            head.next = new ListNode(1);
         }
         return dummy.next;
-        // Time: O(Math.max(l1.length, l2.length)), Space: O(1)
     }
 }
