@@ -23,7 +23,7 @@ public class Solution {
                 num += c2.val;
                 c2 = c2.next;
             }
-            head.next = num%10;
+            head.next = new ListNode(num%10);
             head = head.next;
         }
         if (num >= 10){
