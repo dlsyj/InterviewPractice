@@ -16,9 +16,9 @@ public class Solution {
         }
         ListNode ptrA = headA;
         ListNode ptrB = headB;
-        while (ptrA != prtB){
-            ptrA = ptrA != null ? ptrA.next : ptrB;
-            ptrB = ptrB != null ? ptrB.next : ptrA;
+        while (ptrA != ptrB){
+            ptrA = ptrA != null ? ptrA.next : headB;
+            ptrB = ptrB != null ? ptrB.next : headA;
         }
         return ptrA;
     }
