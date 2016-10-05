@@ -19,7 +19,7 @@ public class Solution {
         while (!queue.isEmpty()){
             int levelSize = queue.size();
             List<Integer> currLevel = new ArrayList<Integer>();
-            for (int i = 0; i < currLevel.size(); i ++){
+            for (int i = 0; i < levelSize; i ++){
                 TreeNode curr = queue.poll();
                 currLevel.add(curr.val);
                 if (curr.left != null){
