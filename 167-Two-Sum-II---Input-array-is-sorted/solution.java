@@ -12,8 +12,9 @@ public class Solution {
             } else if (target < sum){
                 right --;
             } else {
-                result[0] = left;
-                result[1] = right;
+                result[0] = left + 1;
+                result[1] = right + 1;
+                break;
             }
         }
         return result;
