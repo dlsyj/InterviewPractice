@@ -3,7 +3,9 @@ public class Solution {
         double result = 1;
         long i = Math.abs((long)n);
         while(i > 0) {
-            if(i % 2==1) result *= x;
+            if(i % 2 == 1){
+                result *= x;
+            }
             i /= 2;
             x *= x;
         }
