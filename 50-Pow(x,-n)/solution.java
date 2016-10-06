@@ -1,12 +1,12 @@
 public class Solution {
     public double myPow(double x, int n) {
-        double ans = 1;
+        double result = 1;
         long i = Math.abs((long)n);
         while(i > 0) {
-            if((i & 1)==1) ans *= x;
-            i >>= 1;
+            if(i % 2==1) result *= x;
+            i /= 2;
             x *= x;
         }
-        return n < 0 ?  1/ans : ans;
+        return n < 0 ?  1/result : result;
     }
 }
