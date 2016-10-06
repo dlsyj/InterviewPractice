@@ -3,7 +3,7 @@ public class Solution {
         if (nums == null || nums.length < k){
             throw new Error();
         }
-        int pos = quickSelect(nums, nums.length - k + 1, 0, nums.length);
+        int pos = quickSelect(nums, nums.length - k + 1, 0, nums.length - 1);
         return nums[pos];
     }
     public int quickSelect(int[] nums, int k, int left, int right){
