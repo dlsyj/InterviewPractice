@@ -6,8 +6,8 @@ public class Solution {
             if (i % 2 == 1){
                 result *= x;
             }
-            i /= 2;
             x *= x;
+            i /= 2;
         }
         return n > 0 ? result : 1/result;
     }
