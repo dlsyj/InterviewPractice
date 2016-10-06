@@ -20,9 +20,9 @@ public class Solution {
         swap(nums, i, right);
         int currNum = i - left + 1;
         if (currNum < k){
-            quickselect(nums, k - currNum, i + 1, right);
+            return quickselect(nums, k - currNum, i + 1, right);
         }else if (k < currNum){
-            quickselect(nums, k, 0, i - 1);
+            return quickselect(nums, k, left, i - 1);
         }else{
             return i;
         }
